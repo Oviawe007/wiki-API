@@ -82,8 +82,8 @@ app.route('/articles/:articleTitle')
 })
 .patch(function (req, res){
     Article.findOneAndUpdate({articleTitle: req.body.articleTitle},
-        {$set :{title: req.body.title, content: req.body.content}},
-        {new : true}, 
+        {$set :req.body},
+        {new: true}, 
         function(err, result){
             if(!err){
                 res.send(result);
